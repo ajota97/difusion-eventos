@@ -4,14 +4,14 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Añadir Nuevo Cliente</h2>
+                <h2>Nuevo Cliente</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('clients.index') }}"> volver</a>
             </div>
         </div>
     </div>
-
+<br/>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -28,41 +28,41 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <strong>Nombre:</strong>
+                    <input type="text" name="name" class="form-control" placeholder="Nombre">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                  <strong>Email:</strong>
-                  <input type="text" name="email" class="form-control" placeholder="Name">
+                  <strong>Correo:</strong>
+                  <input type="text" name="email" class="form-control" placeholder="Correo">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                   <strong>Nit:</strong>
-                  <input type="text" name="nit" class="form-control" placeholder="Name">
+                  <input type="text" name="nit" class="form-control" placeholder="Nit">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                  <strong>Address:</strong>
-                  <input type="text" name="address" class="form-control" placeholder="Name">
+                  <strong>Direccion:</strong>
+                  <input type="text" name="address" class="form-control" placeholder="Direccion">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                  <strong>Phone:</strong>
-                  <input type="text" name="phone" class="form-control" placeholder="Name">
+                  <strong>Telefono:</strong>
+                  <input type="text" name="phone" class="form-control" placeholder="Telefono">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>
     </form>

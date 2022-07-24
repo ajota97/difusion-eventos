@@ -11,9 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-      $users = User::whereHas('roles', function($query){
-                $query->where('name', 'user');
-              })->get();
+      $users = User::whereHas('roles')->get();
 
       return view('admin.users.index', compact('users'));
     }
@@ -34,12 +32,13 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('users.index')->with('success', 'User created succssfully.');
+        return redirect()->route('users.index')->with('success', 'Usuario creado exitosamente.');
     }
 
     public function show($id)
     {
-        $user = User::find($id);
+           $user = User::find($id);
+    //     $user->syncRoles($id->input('roles'));
 
         return view('admin.users.show',compact('user'));
     }
@@ -59,14 +58,14 @@ class UserController extends Controller
         $user->update(['name' => $request->name]);
         $user->syncRoles($request->input('roles'));
 
-        return redirect()->route('users.index')->with('success', 'User updated succssfully.');
+        return redirect()->route('users.index')->with('success', 'Usuario actualizado.');
     }
 
     public function destroy($id)
     {
         User::find($id)->delete();
         return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+                        ->with('success','Usuario eliminado exitosamente.');
 
     }
 }

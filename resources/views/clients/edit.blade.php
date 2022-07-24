@@ -4,13 +4,15 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Client</h2>
+                <h2>Editar Cliente</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Volver</a>
             </div>
         </div>
     </div>
+
+    <br/>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -29,14 +31,14 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     <input type="text" name="name" value="{{ $client->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Email:</strong>
+                    <strong>Correo:</strong>
                     <input type="text" name="email" value="{{ $client->email }}" class="form-control" placeholder="Name">
                 </div>
             </div>
@@ -50,20 +52,21 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Address:</strong>
+                    <strong>Direccion:</strong>
                     <input type="text" name="address" value="{{ $client->address }}" class="form-control" placeholder="Name">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Phone:</strong>
+                    <strong>Telefono:</strong>
                     <input type="text" name="phone" value="{{ $client->phone }}" class="form-control" placeholder="Name">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <br/>
+              <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>
     </form>

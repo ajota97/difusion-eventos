@@ -3,35 +3,39 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <h2> Show User</h2>
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+            <h2> Ver Usuario</h2>
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Volver</a>
         </div>
     </div>
-
+    <br/>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
+                <strong>Nombre:</strong>
                 {{ $user->name }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Email:</strong>
+                <strong>Correo:</strong>
                 {{ $user->email }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Roles:</strong>
+                <strong>Rol:</strong>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $role)
-                        <label class="badge badge-success">{{ $role }}</label>
+                       <span class="badge bg-dark tips"
+                          data-bs-toggle="popover" title="Empty">
+                          {{ $role }}
+                       </span>
                     @endforeach
                 @endif
             </div>
+
         </div>
     </div>
 </div>

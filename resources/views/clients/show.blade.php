@@ -4,25 +4,26 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Show Client</h2>
+                <h2> Ver Cliente</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary text-right" href="{{ route('clients.index') }}"> Back</a>
+                <a class="btn btn-primary text-right" href="{{ route('clients.index') }}"> Volver</a>
             </div>
         </div>
     </div>
+    <br/>
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
+                <strong>Nombre:</strong>
                 {{ $client->name }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Email:</strong>
+                <strong>Correo:</strong>
                 {{ $client->email }}
             </div>
         </div>
@@ -36,14 +37,14 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Address:</strong>
+                <strong>Direccion:</strong>
                 {{ $client->address }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Phone:</strong>
+                <strong>Telefono:</strong>
                 {{ $client->phone }}
             </div>
         </div>

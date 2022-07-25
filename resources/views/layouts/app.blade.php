@@ -50,6 +50,7 @@
                                     @endif
                                 <li><a class="nav-link" href="{{ route('emails.index') }}">Gestionar Correos</a></li>
                                 <li><a class="nav-link" href="{{ route('clients.index') }}">Gestionar clientes</a></li>
+                                <li><a class="nav-link" href="{{ route('events.index') }}">Gestionar Eventos</a></li>
 
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

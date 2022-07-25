@@ -7,7 +7,7 @@
                 <h2>Gestionar Correos </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('emails.create') }}"> Add New </a>
+                <a class="btn btn-success" href="{{ route('emails.create') }}"> Crear Nuevo</a>
             </div>
         </div>
     </div>
@@ -17,12 +17,13 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
+<br/>
     <table class="table table-bordered">
         <tr>
-            <th>Email</th>
-            <th>Category</th>
-            <th>User</th>
+            <th>Correo</th>
+            <th>Categoria</th>
+            <th>creado por</th>
+            <th>Acciones</th>
         </tr>
         @foreach ($emails as $email)
         <tr>
@@ -30,14 +31,11 @@
             <td>{{ $email->categories->name }}</td>
             <td>{{ $email->users->name }}</td>
             <td>
-                 <a class="btn btn-info" href="{{ route('emails.show',$email->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('emails.edit',$email->id) }}">Edit</a>
-                <form action="{{ route('emails.destroy',$email->id) }}" method="POST">
-
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+            <a class="btn btn-info" href="{{ route('emails.show',$email->id) }}">Ver</a>
+                   <a class="btn btn-primary" href="{{ route('emails.edit',$email->id) }}">Editar</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['emails.destroy', $email->id],'style'=>'display:inline']) !!}
+                        {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
             </td>
         </tr>
         @endforeach

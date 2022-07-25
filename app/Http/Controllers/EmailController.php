@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmails;
 use App\Models\Category;
 use App\Models\Email;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -77,7 +80,11 @@ class EmailController extends Controller
         $categories = Category::get(['id', 'name']);
         $emailCategory = $email->categories->pluck('id')->toArray();
 
+        // $event= Event::where('id', 1)->first();
+        // $receivers="franklin.ojc@gmail.com";
+        // Mail::to($receivers)->send(new SendEmails($event));
         return view('emails.edit', compact('email', 'categories', 'emailCategory'));
+
     }
 
     /**

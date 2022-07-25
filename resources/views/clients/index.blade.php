@@ -40,7 +40,7 @@
                     {!! Form::open(['method' => 'DELETE','route' => ['clients.destroy', $client->id],'style'=>'display:inline']) !!}
                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
-                </td>
+            </td>
         </tr>
         @endforeach
     </table>

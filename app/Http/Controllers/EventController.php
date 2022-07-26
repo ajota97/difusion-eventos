@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmails;
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Email;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class EventController extends Controller
 {
@@ -81,8 +85,16 @@ class EventController extends Controller
     {
 
         $event->update($request->all());
+        return redirect()->route('events.index')->with('success', 'Evento actualizado.' );
+    }
 
-        return redirect()->route('events.index')->with('success', 'Usuario actualizado.');
+    public function sendMails($id){
+
+        $event= Event::where('id', $id)->first();
+        $receivers = Email::where('category_id','=', $event->category_id )->select('email')->get();
+        Mail::to($receivers)->send(new SendEmails($event));
+        return redirect()->route('events.index')
+        ->with('success','Evento difundido.');
     }
 
 

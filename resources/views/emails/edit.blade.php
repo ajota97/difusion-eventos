@@ -26,8 +26,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Categoria:</strong>
-                    <select class="form-control" name="categories[]" >
-                      <option selected>Seleccionar categoria</option>
+                    <select class="form-control" name="category_id" >
+                      <option selected value={{$email->categories->id}}>{{$email->categories->name}}</option>
                       @foreach($categories as $categoria)
                         <option value="{{ $categoria->id }}"> {{ $categoria->name }} </option>
                       @endforeach

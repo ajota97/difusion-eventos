@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div>
                 <h2 class="pull-left">Administrador de Usuarios</h2>
-                <a class="btn btn-success text-right" href="{{ route('users.create') }}"> Crear nuevo usuario</a>
+                <a class="btn btn-success text-right" href="{{ route('users.create') }}"> Crear</a>
             </div>
         </div>
     </div>

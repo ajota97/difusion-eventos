@@ -8,7 +8,6 @@ use App\Models\Email;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -78,12 +77,8 @@ class EmailController extends Controller
     {
         $email = Email::find($id);
         $categories = Category::get(['id', 'name']);
-        $emailCategory = $email->categories->pluck('id')->toArray();
 
-        // $event= Event::where('id', 1)->first();
-        // $receivers="franklin.ojc@gmail.com";
-        // Mail::to($receivers)->send(new SendEmails($event));
-        return view('emails.edit', compact('email', 'categories', 'emailCategory'));
+        return view('emails.edit', compact('email', 'categories'));
 
     }
 
@@ -94,17 +89,12 @@ class EmailController extends Controller
      * @param  \App\Models\Email  $clients
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,Email $email)
     {
-        $email = Email::where('email', $request->email)->first();
-        $email->update(
-            ['email' => $request->email,
-            'user_id'     =>  Auth::User()->id,
-            'category_id'=>implode(" ",$request->input('categories'))
-    ]);
+        $email->update($request->all());
 
         return redirect()->route('emails.index')->with('success', 'Correo actualizado.');
-    
+
     }
 
     /**

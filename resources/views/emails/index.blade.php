@@ -7,7 +7,7 @@
                 <h2>Gestionar Correos </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('emails.create') }}"> Crear Nuevo</a>
+                <a class="btn btn-success" href="{{ route('emails.create') }}"> Crear</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
         <tr>
             <th>Correo</th>
             <th>Categoria</th>
-            <th>creado por</th>
+            <th>Creado por</th>
             <th>Acciones</th>
         </tr>
         @foreach ($emails as $email)

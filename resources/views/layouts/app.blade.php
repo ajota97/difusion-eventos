@@ -46,11 +46,11 @@
                         @else
                             <li class="nav-item ">
                                 @if(Auth::user()->hasRole('admin'))
-                                    <li><a class="nav-link" href="{{ route('users.index') }}">Gestionar Usuarios</a></li>
+                                    <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                                     @endif
-                                <li><a class="nav-link" href="{{ route('emails.index') }}">Gestionar Correos</a></li>
-                                <li><a class="nav-link" href="{{ route('clients.index') }}">Gestionar clientes</a></li>
-                                <li><a class="nav-link" href="{{ route('events.index') }}">Gestionar Eventos</a></li>
+                                <li><a class="nav-link" href="{{ route('emails.index') }}">Correos</a></li>
+                                <li><a class="nav-link" href="{{ route('clients.index') }}">Clientes</a></li>
+                                <li><a class="nav-link" href="{{ route('events.index') }}">Eventos</a></li>
 
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

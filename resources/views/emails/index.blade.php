@@ -9,6 +9,7 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('emails.create') }}"> Crear</a>
             </div>
+            <br/>
         </div>
     </div>
 

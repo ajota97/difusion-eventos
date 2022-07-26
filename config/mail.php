@@ -45,6 +45,27 @@ return [
             'auth_mode' => null,
         ],
 
+        // 'smtp' => [
+        //     'transport' => 'smtp',
+        //     'host' => env('MAIL_HOST'),
+        //     'port' => env('MAIL_PORT'),
+        //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        //     'username' => env('MAIL_USERNAME'),
+        //     'password' => env('MAIL_PASSWORD'),
+        //     // 'mail.smtp.tls.enable'=>true,
+        //     // 'mail.smtp.auth'=>false,
+        //     // 'mail.smtp.ehlo' => false
+        // ],
+
+
+        'stream' => [
+            'ssl' => [
+                'allow_self_signed' => true,
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+            ],
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
@@ -92,8 +113,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'grupo26sc@tecnoweb.org.bo'),
+        'name' => env('MAIL_FROM_NAME', 'grupo26'),
     ],
 
     /*

@@ -13,10 +13,9 @@
         <li>Hora de inicio: {{ $event->start_time }}</li>
         <li>Hora de fin: {{ $event->finish_time }}</li>
         <li>Direccion: {{ $event->address}}</li>
+        <li>Decripcion: {{ $event->description}}</li>
+        <li>Categoria: {{ $event->categories->name}}</li>
+        <li>Ofrecido por: {{ $event->client->name}}</li>
     </ul>
-    
-                  <!-- 'description' => $request->description,
-                  'client_id'   => implode(" ",$request->input('clients')),
-                  'user_id'     => Auth::User()->id,
-                  'category_id' => implode(" ",$request->input('categories')) -->
+
 </body>

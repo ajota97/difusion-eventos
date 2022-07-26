@@ -8,7 +8,7 @@
         </div>
     </div>
 <br/>
-    <form method="post" action="{{ route('emails.store') }}" >
+    <form id="createForm" method="post" action="{{ route('emails.store') }}" >
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -32,10 +32,11 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <br/>
-                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <button type="submit" class="btn btn-primary" >Aceptar</button>
             </div>
         </div>
     </form>
 </div>
+
 
 @endsection

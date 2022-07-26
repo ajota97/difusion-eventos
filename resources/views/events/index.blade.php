@@ -7,7 +7,7 @@
                 <h2>Gestionar eventos </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('events.create') }}"> Añadir </a>
+                <a class="btn btn-success" href="{{ route('events.create') }}"> Crear </a>
             </div>
         </div>
     </div>
@@ -29,8 +29,8 @@
             <th>Descripcion</th>
             <th>Categoria</th>
             <th>Cliente</th>
-            <th>Usuario</th>
-            <th width="280px">Accion</th>
+            <th>Creado por</th>
+            <th style="text-align: center" width="300px">Accion</th>
         </tr>
         @foreach ($events as $event)
         <tr>
@@ -44,8 +44,11 @@
             <td>{{ $event->client->name }}</td>
             <td>{{ $event->users->name }}</td>
             <td>
-            <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Ver</a>
+                   <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Ver</a>
                    <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Editar</a>
+                   {!! Form::open(['method' => 'POST','route' => ['mails', $event->id],'style'=>'display:inline']) !!}
+                        {!! Form::submit('Difundir', ['class' => 'btn btn-success']) !!}
+                    {!! Form::close() !!}
                     {!! Form::open(['method' => 'DELETE','route' => ['events.destroy', $event->id],'style'=>'display:inline']) !!}
                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}

@@ -7,7 +7,7 @@
                 <h2>Gestionar Clientes</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('clients.create') }}"> Añadir </a>
+                <a class="btn btn-success" href="{{ route('clients.create') }}"> Crear </a>
             </div>
         </div>
     </div>

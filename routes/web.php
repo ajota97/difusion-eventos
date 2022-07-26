@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -31,10 +32,11 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
-     Route::resource('events', EventController::class);
+    Route::resource('events', EventController::class);
     Route::resource('products', ProductController::class);
     Route::resource('clients', ClientController::class);
     Route::resource('emails', EmailController::class);
+    Route::resource('categories', CategoryController::class);
     Route::get('home', [HomeController::class, 'index'])->name('home');
 });
 

@@ -23,13 +23,13 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div wire:ignore>
                 <div class="form-group">
                     <strong>Categoria:</strong>
-                    <select class="form-control" name="categories[]" >
+                    <select class="form-control" name="roles[]">
                       <option selected>Seleccionar categoria</option>
-                      @foreach($categories as $categoria)
-                        <option value="{{ $categoria->id }}"> {{ $categoria->name }} </option>
+                      @foreach($categories as $category)
+                        <option value="{{ $category->id }}" > {{ $category->name }} </option>
                       @endforeach
                     </select>
                 </div>

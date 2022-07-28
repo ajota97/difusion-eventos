@@ -56,17 +56,17 @@
                          @if (Route::has('register'))
                          <li class="nav-item">
                              <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                         </li>
-                         @endif
-                         @else
-                         <li class="nav-item ">
+                            </li>
+                            @endif
+                            @else
+                            <li class="nav-item ">
                              @if(Auth::user()->hasRole('admin'))
-                         <li><a class="nav-link" href="{{ route('users.index') }}"> Usuarios</a></li>
+                             <li><a class="nav-link" href="{{ route('users.index') }}"> Usuarios</a></li>
+                             <li><a class="nav-link" href="{{ route('categories.index') }}"> Categorias</a></li>
                          @endif
                          <li><a class="nav-link" href="{{ route('emails.index') }}"> Correos</a></li>
                          <li><a class="nav-link" href="{{ route('clients.index') }}"> Clientes</a></li>
                          <li><a class="nav-link" href="{{ route('events.index') }}"> Eventos</a></li>
-                         <li><a class="nav-link" href="{{ route('categories.index') }}"> Categorias</a></li>
                          <li><a class="nav-link"> Modo</a></li>
 
                                 <div class="form-check form-switch">

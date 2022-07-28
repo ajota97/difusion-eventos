@@ -75,22 +75,21 @@ class UserController extends Controller
         $request->validate(
             [
                 'name'     => 'required | min:3',
-                'email'    =>  'required | email| unique:users,email',
+                'email'    =>  'required | email',
             ],
             [
                 'name.required'  => 'El campo NOMBRE no puede ser vacio',
                 'name.min'       => 'El campo NOMBRE tiene que ser de al menos 3 caracteres',
                 'email.required' => 'El campo CORREO no puede ser vacio', 
                 'email.email'    => 'Se requiere un correo valido', 
-                'email.unique'   => 'El correo ya se encuentra registrado',
             ]
         );
 
-        // $user = User::where('email', $request->email)->first();
-        // $user->update(['name' => $request->name]);
-        // $user->syncRoles($request->input('roles'));
-
-        $user -> update($request->all());
+         $user = User::where('email', $request->email)->first();
+         $user->update(['name' => $request->name]);
+        
+        $user->syncRoles($request->input('roles'));
+     //   $user -> update($request->all());
 
         return redirect()->route('users.index')->with('success', 'Usuario actualizado.');
     }

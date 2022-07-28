@@ -37,9 +37,10 @@
                     </span>
                     @enderror    
                 </div>
+
                 <div class="form-group mb-2">
                     <strong>Correo:</strong>
-                    <input type="email" name="email"
+                    <input type="email" name="email" readonly
                             class="form-control @error('email') is-invalid @enderror"
                             placeholder="Email" value="{{ $user->email }}">
                     @error('email')
@@ -55,7 +56,7 @@
                 <div class="form-group mb-2">
                     <strong>Rol:</strong>
                     <select class="form-control" name="roles[]">
-                      <!-- <option selected>Seleccionar rol</option> -->
+                      
                       @foreach($roles as $role)
                         <option value="{{ $role->id }}" @if(in_array($role->id, $userRoles) ) selected @endif> {{ $role->name }} </option>
                       @endforeach

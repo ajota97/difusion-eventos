@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('categories', CategoryController::class);
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::post('mails/{id}', [EventController::class, 'sendMails'])->name('mails');
+    // Route::get('events/buscar/{id}', [EventController::class,'index'])->name('events/buscar');
+
 });
 
 Route::group(['middleware' => ['auth','role']], function() {

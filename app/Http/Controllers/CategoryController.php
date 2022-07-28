@@ -21,10 +21,15 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required'
-
-        ]);
+        $request->validate(
+            [
+                'name' => 'required | min:3'
+            ],
+            [
+                'name.required' => 'El campo nombre no puede estar vacio',
+                'name.min'      => 'El campo nombre Requiere un MINIMO de 3 caracteres',
+            ]
+        );
 
         Category::create($request->all());
 
@@ -50,6 +55,16 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'name' => 'required | min:3'
+            ],
+            [
+                'name.required' => 'El campo nombre no puede estar vacio',
+                'name.min'      => 'El campo nombre Requiere un MINIMO de 3 caracteres',
+            ]
+        );
+
         $categoria = Category::find($id);
         $categoria->name  = $request->post('name');
         $categoria->save();

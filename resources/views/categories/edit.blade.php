@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container mt-1">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -29,10 +29,19 @@
 
         @method('PUT')
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="p-5 bg-white rounded shadow-lg">
+                <div class="form-group mb-2">
                     <strong>Nombre:</strong>
-                    <input type="text" name="name" value="{{ $categoria->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="name" 
+                    class="form-control @error('name') is-invalid @enderror"
+                    placeholder="Nombre" value="{{ $categoria->name }}" >
+
+                    @error('name')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
+                    
                 </div>
             </div>
 

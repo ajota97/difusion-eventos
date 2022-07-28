@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container mt-1">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -24,44 +24,68 @@
 
     <form action="{{ route('clients.store') }}" method="POST">
         @csrf
-
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+         <div class="p-5 bg-white rounded shadow-lg">
+                <div class="form-group mb-2">
                     <strong>Nombre:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Nombre">
-                </div>
-            </div>
+                    <input type="text" name="name" 
+                            class="form-control @error('name') is-invalid @enderror"
+                            placeholder="Nombre" value="{{ old('name') }}">
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                    @error('name')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
+               
+            </div>
+          
+                <div class="form-group mb-2">
                   <strong>Correo:</strong>
-                  <input type="text" name="email" class="form-control" placeholder="Correo">
+                  <input type="text" name="email"
+                         class="form-control @error('email') is-invalid @enderror"
+                         placeholder="Correo" value="{{ old('email') }}">
+                  @error('email')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <strong>Nit:</strong>
-                  <input type="text" name="nit" class="form-control" placeholder="Nit">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                  <input type="text" name="nit" 
+                         class="form-control @error('nit') is-invalid @enderror"
+                         placeholder="Nit" value="{{ old('nit') }}">
+                  @error('nit')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
+                </div>           
+                <div class="form-group mb-2">
                   <strong>Direccion:</strong>
-                  <input type="text" name="address" class="form-control" placeholder="Direccion">
+                  <input type="text" name="address" 
+                  class="form-control @error('address') is-invalid @enderror" 
+                  placeholder="Direccion" value="{{ old('address') }}">
+                  @error('address')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group mb-2">
                   <strong>Telefono:</strong>
-                  <input type="text" name="phone" class="form-control" placeholder="Telefono">
+                  <input type="text" name="phone"   
+                         class="form-control @error('phone') is-invalid @enderror" 
+                         placeholder="Telefono" value="{{ old('phone') }}">
+                  @error('phone')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
                     <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>

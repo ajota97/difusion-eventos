@@ -31,14 +31,23 @@ class EmailController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
-        ]);
+
+        $request->validate(
+            [
+                'email'     => 'required |email',
+                'category_id'  => 'required'
+            ],
+            [
+                'email.required' => 'El campo correo no puede estar vacio',
+                'email.email'   => 'Debe ingresar un correo valido',
+                'category_id.required' => 'Seleccione una categoria'
+            ]
+    );
 
         Email::create([
             'email'      =>  $request->email,
             'user_id'     =>  Auth::User()->id,
-            'category_id'=>implode(" ",$request->input('categories'))
+            'category_id'=>$request->input('category_id')
           ]);
 
 
@@ -69,6 +78,19 @@ class EmailController extends Controller
      */
     public function update(Request $request,Email $email)
     {
+       
+        $request->validate(
+            [
+                'email'     => 'required |email',
+                'category_id'  => 'required'
+            ],
+            [
+                'email.required' => 'El campo correo no puede estar vacio',
+                'email.email'   => 'Debe ingresar un correo valido',
+                'category_id.required' => 'Seleccione una categoria'
+            ]
+        );
+
         $email->update($request->all());
 
         return redirect()->route('emails.index')->with('success', 'Correo actualizado.');

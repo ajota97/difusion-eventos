@@ -39,14 +39,32 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'nit' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+        $request->validate(
+            [
+                'name'    => 'required | min:3',
+                'email'   => 'required | email | unique:clients,email',
+                'nit'     => 'required | numeric | digits:10',
+                'address' => 'required | min:15 ',
+                'phone'   => 'required | digits_between:7,11 | numeric' 
+            ],
+            [
+                'name.required' => 'El campo No puede estar vacio',
+                'name.min'      => 'El campo Requiere un MINIMO de 3 caracteres',
+                'email.required'=> 'El campo No puede estar vacio',
+                'email.email'   => 'Debe ingresar un correo valido',
+                'email.unique'  => 'El correo ya se encuentra Registrado',
+                'nit.required'  => 'El campo No puede estar vacio',
+                'nit.numeric'   => 'Ingrese solo numeros',
+                'nit.digits'    => 'La candidad requerida es de 10 digitos ',
+                'address.required'=> 'El campo No puede estar vacio',
+                'address.min'    => 'El campo Requiere un MINIMO de 15 caracteres',
+                'phone.required' => 'El campo No puede estar vacio',
+                'phone.min'      => 'El campo Requiere un MINIMO de 7 digitos',
+                'phone.digits_between'  => 'El telefono tiene que tener 7 u 11 digitos',
+                'phone.numeric'  => 'Ingrese solo numeros',
 
-        ]);
+            ]
+        );
 
         Client::create($request->all());
 
@@ -84,13 +102,32 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'nit' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
-        ]);
+        $request->validate(
+            [
+                'name'    => 'required | min:3',
+                'email'   => 'required | email | unique:clients,email',
+                'nit'     => 'required | numeric | digits:10',
+                'address' => 'required | min:15 ',
+                'phone'   => 'required | digits_between:7,11 | numeric' 
+            ],
+            [
+                'name.required' => 'El campo No puede estar vacio',
+                'name.min'      => 'El campo Requiere un MINIMO de 3 caracteres',
+                'email.required'=> 'El campo No puede estar vacio',
+                'email.email'   => 'Debe ingresar un correo valido',
+                'email.unique'  => 'El correo ya se encuentra Registrado',
+                'nit.required'  => 'El campo No puede estar vacio',
+                'nit.numeric'   => 'Ingrese solo numeros',
+                'nit.digits'    => 'La candidad requerida es de 10 digitos ',
+                'address.required'=> 'El campo No puede estar vacio',
+                'address.min'    => 'El campo Requiere un MINIMO de 15 caracteres',
+                'phone.required' => 'El campo No puede estar vacio',
+                'phone.min'      => 'El campo Requiere un MINIMO de 7 digitos',
+                'phone.digits_between'  => 'El telefono tiene que tener 7 u 11 digitos',
+                'phone.numeric'  => 'Ingrese solo numeros',
+
+            ]
+        );
 
         $client->update($request->all());
 

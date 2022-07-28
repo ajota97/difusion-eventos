@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container mt-1">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -26,13 +26,21 @@
         @csrf
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="p-5 bg-white rounded shadow-lg">
+                <div class="form-group mb-2">
                     <strong>Nombre:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Nombre">
+                    <input type="text" name="name" 
+                    class="form-control @error('name') is-invalid @enderror"
+                    placeholder="Nombre" value="{{ old('name') }}">
+
+                    @error('name')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
                     <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>

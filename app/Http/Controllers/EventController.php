@@ -35,28 +35,40 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-                $request->validate([
-                    'name'          => 'required',
-                    'date'          => 'required',
-                    'start_time'    => 'required',
-                    'finish_time'   => 'required',
-                    'address'       => 'required',
-                ]);
+        $request->validate(
+            [
+                'name'          => 'required | min:3',
+                'date'          => 'required',
+                'start_time'    => 'required',
+                'finish_time'   => 'required',
+                'address'       => 'required | min:10',
+            ],
+            [
+                'name.required' => 'El campo NOMBRE no puede ser vacio',
+                'name.min'      => 'Se requiere minimo 3 caracteres',
+                'date.required' => 'El campo FECHA no puede ser vacio',
+                'start_time.required'    => 'La HORA INICIO no puede ser vacio',
+                'finish_time.required'   => 'La HORA FIN no puede ser vacio',
+                'address.required'  =>  'El campo DIRECCION no puede ser vacio',
+                'address.min'  =>  'Se requiere minimo 10 caracteres'
+            ]
+                
+        );
 
-                Event::create([
-                  'name'        => $request->name,
-                  'date'        => $request->date,
-                  'start_time'  => $request->start_time,
-                  'finish_time' => $request->finish_time,
-                  'address'     => $request->address,
-                  'description' => $request->description,
-                  'client_id'   => implode(" ",$request->input('clients')),
-                  'user_id'     => Auth::User()->id,
-                  'category_id' => implode(" ",$request->input('categories'))
+        Event::create([
+          'name'        => $request->name,
+          'date'        => $request->date,
+          'start_time'  => $request->start_time,
+          'finish_time' => $request->finish_time,
+          'address'     => $request->address,
+          'description' => $request->description,
+          'client_id'   => implode(" ",$request->input('clients')),
+          'user_id'     => Auth::User()->id,
+          'category_id' => implode(" ",$request->input('categories'))
 
-                ]);
+        ]);
 
-
+  
         return redirect()->route('events.index')->with('success', 'Email creado exitosamente.');
     }
 
@@ -83,6 +95,25 @@ class EventController extends Controller
 
     public function update(Request $request,Event $event)
     {
+        $request->validate(
+            [
+                'name'          => 'required | min:3',
+                'date'          => 'required',
+                'start_time'    => 'required',
+                'finish_time'   => 'required',
+                'address'       => 'required | min:10',
+            ],
+            [
+                'name.required' => 'El campo NOMBRE no puede ser vacio',
+                'name.min'      => 'Se requiere minimo 3 caracteres',
+                'date.required' => 'El campo FECHA no puede ser vacio',
+                'start_time.required'    => 'La HORA INICIO no puede ser vacio',
+                'finish_time.required'   => 'La HORA FIN no puede ser vacio',
+                'address.required'  =>  'El campo DIRECCION no puede ser vacio',
+                'address.min'  =>  'Se requiere minimo 10 caracteres'
+            ]
+                
+        );
 
         $event->update($request->all());
         return redirect()->route('events.index')->with('success', 'Evento actualizado.' );

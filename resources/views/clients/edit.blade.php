@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container mt-1">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -28,45 +28,69 @@
         @csrf
 
         @method('PUT')
-         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+        <div class="row">
+         <div class="p-5 bg-white rounded shadow-lg">
+                <div class="form-group mb-2">
                     <strong>Nombre:</strong>
-                    <input type="text" name="name" value="{{ $client->name }}" class="form-control" placeholder="Name">
-                </div>
-            </div>
+                    <input type="text" name="name" 
+                            class="form-control @error('name') is-invalid @enderror"
+                            placeholder="Nombre" value="{{ $client->name  }}">
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Correo:</strong>
-                    <input type="text" name="email" value="{{ $client->email }}" class="form-control" placeholder="Name">
-                </div>
+                    @error('name')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
+               
             </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nit:</strong>
-                    <input type="text" name="nit" value="{{ $client->nit }}" class="form-control" placeholder="Name">
+          
+                <div class="form-group mb-2">
+                  <strong>Correo:</strong>
+                  <input type="text" name="email"
+                         class="form-control @error('email') is-invalid @enderror"
+                         placeholder="Correo" value="{{ $client->email }}">
+                  @error('email')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Direccion:</strong>
-                    <input type="text" name="address" value="{{ $client->address }}" class="form-control" placeholder="Name">
+                <div class="form-group mb-2">
+                  <strong>Nit:</strong>
+                  <input type="text" name="nit" 
+                         class="form-control @error('nit') is-invalid @enderror"
+                         placeholder="Nit" value="{{ $client->nit }}">
+                  @error('nit')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
+                </div>           
+                <div class="form-group mb-2">
+                  <strong>Direccion:</strong>
+                  <input type="text" name="address" 
+                  class="form-control @error('address') is-invalid @enderror" 
+                  placeholder="Direccion" value="{{ $client->address }}">
+                  @error('address')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Telefono:</strong>
-                    <input type="text" name="phone" value="{{ $client->phone }}" class="form-control" placeholder="Name">
+                <div class="form-group mb-2">
+                  <strong>Telefono:</strong>
+                  <input type="text" name="phone"   
+                         class="form-control @error('phone') is-invalid @enderror" 
+                         placeholder="Telefono" value="{{ $client->phone }}">
+                  @error('phone')
+                    <span class="invalid-feedback">
+                        <strong> {{ $message }} </strong>
+                    </span>
+                    @enderror
                 </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <br/>
-              <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>
     </form>

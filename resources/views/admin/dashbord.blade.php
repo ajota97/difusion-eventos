@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-                    {{ __('Hello Super Admin You are logged in!') }}
+                    {{ __('Bienvenido a la pagina principal') }}
                 </div>
             </div>
         </div>
